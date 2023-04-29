@@ -1,5 +1,6 @@
 export type MainBottomTabParamList = {
   Home: undefined;
-  Details: undefined;
+  AddNewItem: undefined;
   List: undefined;
+  Game: undefined;
 };

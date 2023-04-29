@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { View, Text, Button, StyleSheet, Animated, TextInput } from "react-native";
- import { db } from "../../../firebase-config";
+import { db } from "../../../firebase-config";
 import {
   ref,
   push
 } from "firebase/database";
 
-const HomeScreen = (): JSX.Element => {
+const AddNewItemScreen = (): JSX.Element => {
   const emptyWord = { word: "", notes: "", imageURL: "" };
   const [words, setWords] = useState({});
   const [presentWord, setPresentWord] = useState(emptyWord);
@@ -92,4 +92,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default HomeScreen;
+export default AddNewItemScreen;

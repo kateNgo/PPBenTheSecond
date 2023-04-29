@@ -1,11 +1,5 @@
-import {useNavigation} from '@react-navigation/native';
 import React, { useEffect, useState } from "react";
 import { View, Text, Button, StyleSheet, Animated, TextInput } from "react-native";
-import {CompositeNavigationProp} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from '../RootStackParams';
-import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
-import {MainBottomTabParamList} from './MainBottomTabParams';
 import { db } from '../../../firebase-config';
 import {
   ref,
@@ -14,10 +8,6 @@ import {
 } from 'firebase/database';
 import WordItem from "./WordItem";
 
-type ListScreenProp = CompositeNavigationProp<
-  StackNavigationProp<RootStackParamList, 'Main'>,
-  BottomTabNavigationProp<MainBottomTabParamList, 'List'>
->;
 
 const ListScreen = () => {
   const [words, setWords] = useState({});
@@ -25,7 +15,7 @@ const ListScreen = () => {
   useEffect(() => {
     return onValue(ref(db, "/words"), querySnapShot => {
       let data = querySnapShot.val() || {};
-      const keys = Object.keys(data);
+
       let wordItems = { ...data };
       setWords(wordItems);
 
